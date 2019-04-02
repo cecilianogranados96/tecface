@@ -1,0 +1,244 @@
+ .no-pad {
+     padding: 0px;
+ }
+
+ .white-text {
+     color: #fff;
+ }
+
+ .text-color:hover {
+     color: #9cb4d8;
+     text-decoration: underline;
+ }
+
+ .blue-container {
+     background-color: #3b5998;
+     background-image: linear-gradient(#4e69a2, #3b5998 50%);
+     -bottom: 1px solid #133783;
+     height: 82px;
+     min-height: 42px;
+     position: relative;
+ }
+
+ .logo {
+     padding: 0px;
+     padding-top: 10px;
+     font-family: inherit;
+     font-size: 44px;
+ }
+
+ .title {
+     padding: 4px;
+     padding-left: 90px;
+ }
+
+ .blue-background {
+     background-color: #3b5998;
+     margin-top: 30px;
+     padding: 0px 8px 0px 3px;
+     width: 60px;
+     height: 30px;
+     border: 1px solid #a9a7a7;
+     border-radius: 10px;
+     border-radius: 0px;
+ }
+
+ .ui-button {
+     background-color: #4267b2;
+     border-color: #29487d;
+ }
+
+ .white-text:hover {
+     color: #fff;
+ }
+
+ .my-label {
+     font-size: 12px;
+     padding-right: 55px;
+     font-family: Helvetica, Arial, sans-serif;
+ }
+
+ .my-label1 {
+     padding-right: 88px;
+ }
+
+ .my-input {
+     height: 21px;
+     padding: 6px 12px;
+     width: 142px !important;
+     border: 1px solid black;
+ }
+
+ .my-input1 {
+     padding-left: 142px;
+     margin: 10px 0px 0px 0px;
+ }
+
+ .my-input2 {
+     padding-left: 155px;
+     font-size: 12px;
+     padding-top: 0px;
+ }
+
+ .text-color {
+     color: #9cb4d8;
+ }
+
+ button:hover {
+     color: #9cb4d8;
+     text-decoration: underline;
+ }
+
+ .connect {
+     color: #0e385f;
+     font-size: 18px;
+     font-weight: bold;
+     line-height: 29px;
+     margin-top: 22px;
+     width: 450px;
+     word-spacing: -1px;
+ }
+
+ .img {
+     width: 537px;
+     height: 195px;
+ }
+
+ .heading {
+     font-size: 36px;
+     color: #333;
+     font-weight: 600;
+     margin-bottom: 5px;
+ }
+
+ .paragraph {
+     font-size: 19px;
+     color: #1d2129;
+     font-weight: normal;
+ }
+
+ .name {
+     width: 193px;
+     border-style: solid;
+     font-size: 18px;
+     border-color: #bdc7d8;
+     border-radius: 5px;
+     padding: 8px 10px;
+     font-family: inherit;
+     height: 38px;
+     font-weight: 100;
+ }
+
+ .number {
+     width: 397px;
+     margin-top: -31px;
+ }
+
+ .birthday {
+     margin-bottom: 5px;
+     margin-top: 10px;
+     color: #1d2129;
+     font-size: 18px;
+     font-weight: normal;
+     font-family: inherit;
+ }
+
+ .options {
+     width: 56px;
+     height: 30px;
+     padding-left: 2px;
+     margin: -2px;
+     font-size: 11px;
+ }
+
+ .new-pwd {
+     margin-top: -11px;
+ }
+
+ .d-o-b {
+     margin-top: -3px;
+     display: inline-block;
+     vertical-align: middle;
+     outline: none;
+     color: #365899;
+     cursor: pointer;
+     text-decoration: none;
+     font-size: 11px;
+ }
+
+ .radio-buttons {
+     color: #1d2129;
+     font-size: 18px;
+     font-weight: normal;
+     line-height: 18px;
+     padding: 0 10px 0 3px;
+ }
+
+ .terms {
+     color: #777;
+     font-size: 11px;
+     width: 316px;
+ }
+
+ .sign-up {
+     width: 194px;
+     height: 38px;
+     font-size: 19px;
+     font-weight: bold !important;
+     letter-spacing: normal;
+     background: linear-gradient(#67ae55, #578843);
+     box-shadow: inset 0 1px 1px #a4e388;
+     border-color: #3b6e22 #3b6e22 #2c5115;
+     line-height: 126%;
+ }
+
+ .bg-color {
+     background: linear-gradient(white, #D3D8E8);
+ }
+
+ ::placeholder {
+     color: #999999;
+ }
+
+ .celebrity {
+     margin-top: 33px;
+ }
+
+ .link {
+     color: #3675BB;
+ }
+
+ .align {
+     padding-left: 63px;
+     margin-top: -15px;
+ }
+
+ .custom-pad {
+     padding-left: 28px;
+ }
+
+ .world-img {
+     width: 456px;
+     height: 195px;
+ }
+
+ .mail {
+     font-size: 12px;
+     padding-top: 10px;
+ }
+
+ .form {
+     margin-bottom: 4px;
+ }
+
+ .column {
+     padding-left: 0px;
+ }
+
+ .column1 {
+     padding-left: 3px;
+ }
+
+ .alignment {
+     padding-left: 10px;
+ }
