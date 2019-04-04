@@ -1,13 +1,12 @@
 <?php
-class muro_m extends CI_Model {
-    
+class muro_m extends CI_Model {  
     public function publicar(){
         $this->load->database();  
         $data = array(
                 'descripcion' => $this->input->post('descripcion_post'),
-                'tags' => $this->input->post('tags_post'),
-                'tipo' => $this->input->post('tipo_post'),
-                'id_usuario' => $_SESSION['usuario']
+                'tags'        => $this->input->post('tags_post'),
+                'tipo'        => $this->input->post('tipo_post'),
+                'id_usuario'  => $_SESSION['usuario']
         );
         $this->db->insert('post', $data);
         echo "<script>alert('Insertado con exito');</script>";
@@ -18,8 +17,8 @@ class muro_m extends CI_Model {
         $this->load->database();
         $data = array(
                 'comentario' => $this->input->post('comentario'),
-                'tags' => $this->input->post('tags_comentario'),
-                'id_post' => $this->input->post('id_post'),
+                'tags'       => $this->input->post('tags_comentario'),
+                'id_post'    => $this->input->post('id_post'),
                 'id_usuario' => $_SESSION['usuario']
         );
         $this->db->insert('comentario', $data);
@@ -50,7 +49,7 @@ class muro_m extends CI_Model {
         } elseif ($tiempo > 1440) {
             $tiempo = $tiempo / 1440;
             $tiempo = number_format($tiempo);
-            $valor = " días";
+            $valor = " día";
         }
         return $tiempo . $valor;
     } 
@@ -73,9 +72,13 @@ class muro_m extends CI_Model {
         return $query->num_rows();
     }
     
-    
     public function tags_format($tags){
-        return "<i>"."#".str_replace(",",", #",$tags)."</i>";
+        $tags = explode(",",$tags); 
+        $texto = "";
+        foreach($tags as $valor){
+            $texto .= "<a href='#$valor'>#$valor</a> -";
+        }
+        return "<i>".substr($texto,0,-1)."</i>";
     }
     
     public function get_likes($id_post){
@@ -101,15 +104,49 @@ class muro_m extends CI_Model {
         echo "<script>window.location.href = '../../muro';</script>";  
     }
     
-    public function get_post(){
+    public function get_post(){ //FUNCION DEL MURO 
         $this->load->database();
-        $query = $this->db->query("SELECT post.id_post,post.descripcion,post.tags,if(post.tipo = 1,'<i class=\'fa fa-globe\'></i> Público',' <i class=\'fa fa-ban\'></i> Privado') as tipo, TIMESTAMPDIFF(MINUTE,post.fecha,NOW()) as fecha,post.id_usuario,usuario.nombre FROM post,usuario WHERE usuario.id_usuario = post.id_usuario");
+        $amigos = json_decode($this->get_lista_amigos()[0]->amigos);
+        if(!empty($amigos)){
+            $query_parts = "and (";
+            foreach ($amigos as $val) {
+                $query_parts .= "post.id_usuario LIKE '%".($val)."%' or ";
+            }
+            $query_parts .= "post.id_usuario LIKE '%".$_SESSION['usuario']."%')";
+        }else{
+            $query_parts = " and post.id_usuario LIKE '%".$_SESSION['usuario']."%'";
+        }
+        if($this->input->post('buscar') != ''){
+            $query_parts = " and post.tags LIKE '%".$this->input->post('buscar')."%'"; 
+        }
+        
+        $sql = "
+        SELECT 
+            post.id_post,
+            post.descripcion,
+            post.tags,
+            if(post.tipo = 1,'<i class=\'fa fa-globe\'></i> Público',' <i class=\'fa fa-ban\'></i> Privado') as tipo, 
+            TIMESTAMPDIFF(MINUTE,post.fecha,NOW()) as fecha,
+            post.id_usuario,
+            usuario.nombre 
+        FROM 
+            post,usuario 
+        WHERE 
+            usuario.id_usuario = post.id_usuario {$query_parts} ORDER BY RAND()"; 
+
+        $query = $this->db->query($sql);
         return $query->result();
+    }
+    
+    public function get_nombre(){
+        $this->load->database();
+        $query = $this->db->query("SELECT nombre from usuario where id_usuario = '".$_SESSION['usuario']."' ");
+        return $query->result()[0]->nombre;
     }
     
     public function get_usuarios(){
         $this->load->database();
-        $query = $this->db->query("SELECT id_usuario,nombre from usuario");
+        $query = $this->db->query("SELECT id_usuario,nombre from usuario where `id_usuario` != '".$_SESSION['usuario']."'");
         return $query->result();
     }
     
@@ -127,7 +164,7 @@ class muro_m extends CI_Model {
         $amigos = $this->remover($id,$amigos);
         $amigos = json_encode(array_values($amigos));
         $query = $this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'");
-        echo "<script>alert('Eliminado con exito');</script>";
+        //echo "<script>alert('Eliminado con exito');</script>";
         echo "<script>window.location.href = '../../muro';</script>";  
     }
 
@@ -141,11 +178,11 @@ class muro_m extends CI_Model {
         array_push($amigos,(int) $id);
         $amigos = json_encode(array_values($amigos));
         $query = $this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'");
-        echo "<script>alert('Amigo Agregado con exito');</script>";
+        //echo "<script>alert('Amigo Agregado con exito');</script>";
         echo "<script>window.location.href = '../../muro';</script>";
     }
     
-   public function muro(){
+    public function muro(){
         $this->load->database();
         $query = $this->db->query("SELECT amigos from usuario where id_usuario = '".$_SESSION['usuario']."'");
         $amigos = json_decode($query->result()[0]->amigos);
@@ -155,6 +192,5 @@ class muro_m extends CI_Model {
         echo "<script>alert('Amigo Agregado con exito');</script>";
         echo "<script>window.location.href = '../../muro/';</script>";
     }
-
 }
 ?>

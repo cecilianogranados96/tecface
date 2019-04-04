@@ -1,6 +1,5 @@
 <div class="feed-content" style="width: 60%;">
     
-    
     <div class="recentcontainer">
         <?= form_open('muro/publicar'); ?>
         <ul class="newpostheader nav nav-tabs nav-justified">
@@ -35,7 +34,13 @@
         <?=form_close(); ?>
     </div>
 
-<?php foreach($this->muro_m->get_post() as $row){ ?>
+<?php 
+    if (empty($this->muro_m->get_post()) and $this->input->post('buscar') == ''){
+        echo "<center><h2>Haz amigos primero!</h2></center>";
+    }else if (empty($this->muro_m->get_post()) and $this->input->post('buscar') != ''){
+        echo "<center><h2>Sin Resultados :(</h2></center>";
+    }else {
+        foreach($this->muro_m->get_post() as $row){ ?>
     <div class="recentcontainer" id="<?=$row->id_post;?>">
         <div class="newpostheader">
             <center>
@@ -106,7 +111,7 @@
             </div>
         </div>
     </div> 
-    <?php } ?>
+    <?php } }  ?>
 </div>
 
 <div class="right-content">

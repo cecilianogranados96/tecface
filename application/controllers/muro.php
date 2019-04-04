@@ -2,13 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Muro extends CI_Controller {
     
-	public function index()
-	{
+	public function index(){
         $this->load->model('muro_m');
         $this->load->view('cuenta/header');
 		$this->load->view('cuenta/muro');
-        $this->load->view('cuenta/fotter');
-        
+        $this->load->view('cuenta/fotter');  
 	}
     
    	public function publicar(){
@@ -20,7 +18,6 @@ class Muro extends CI_Controller {
         $this->load->model('muro_m');
 		$this->muro_m->comentar();
 	}
-    
     
     public function eliminar_amigo(){
         $this->load->model('muro_m');

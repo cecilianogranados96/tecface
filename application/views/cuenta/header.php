@@ -19,16 +19,18 @@
 <body>
     <div class="topbar">
     <a class="logo" href="<?php echo base_url(); ?>index.php/muro" style="margin-left: 10%;">
-    <img alt="" src="<?php echo base_url(); ?>/dist/img/logoTF.png"  style=' width: 35px;margin-top: -2%;'/>
+    <img alt="" src="<?php echo base_url(); ?>/dist/img/logoTF.png"  style=' width: 35px;margin-top: -3.5%;'/>
     </a>
         <div class="search-box">
             <div class="input-group">
-                <input aria-describedby="basic-addon2" class="form-control" placeholder="Buscar Face-Tec" type="text" />
+                 <?= form_open('muro'); ?>
+                    <input aria-describedby="basic-addon2" name="buscar" class="form-control" placeholder="Buscar Face-Tec" type="text"  <?php if($this->input->post('buscar') != ''){echo 'value="'.$this->input->post('buscar').'"'; }?>/>
+                <?=form_close(); ?>
             </div>
         </div>
         <div class="right-group">
             <div class="link-group">
-                <a href="<?php echo base_url(); ?>index.php/muro"> <i class="fa fa-user"></i> José Ceciliano</a>
+                <a href="<?php echo base_url(); ?>index.php/muro"> <i class="fa fa-user"></i> <?= $this->muro_m->get_nombre(); ?></a>
             </div>
             <div class="notification-group">
                 <div class="link-group">
