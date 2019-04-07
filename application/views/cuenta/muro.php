@@ -16,7 +16,7 @@
         <table class="table newpostfooter">
             <tr>
                 <td style="width: 85%;">
-                    <input class="input-tags" name="tags_post" id="input-tags" placeholder="Digite un tag y precione enter" >
+                    <input class="input-tags" name="tags_post" id="input-tags" placeholder="Digite un tag y presione enter" >
                 </td>
                 <td style="width: 15%;">
                     <select class="form-control" style="height: 35px;" name="tipo_post">
@@ -36,7 +36,7 @@
 
 <?php 
     if (empty($this->muro_m->get_post()) and $this->input->post('buscar') == ''){
-        echo "<center><h2>Haz amigos primero!</h2></center>";
+        echo "<center><h2>¡Haz amigos primero!</h2></center>";
     }else if (empty($this->muro_m->get_post()) and $this->input->post('buscar') != ''){
         echo "<center><h2>Sin Resultados :(</h2></center>";
     }else {
@@ -49,7 +49,9 @@
                 </center>
         </div>
         <div class="postcontent">
-            <h2> <?= $row->descripcion; ?></h2>
+            <h2> <?= parse_smileys( $row->descripcion, base_url().'dist/smileys'); ?></h2>
+            
+            
             <h4> <?= $this->muro_m->tags_format($row->tags); ?></h4>
         </div>
         <div class="commentpost" style="padding: 1%;">
@@ -82,8 +84,8 @@
             <table style="padding: 1%;">
                     <tr>
                         <td>
-                            <b><?= $comentarios->nombre; ?></b> <?= $comentarios->comentario; ?> - <?= $this->muro_m->tags_format($comentarios->tags); ?> <br> 
-                            Hace <?= $this->muro_m->tiempo($comentarios->fecha) ?>
+                            <b><?= $comentarios->nombre; ?></b> <?= parse_smileys( $comentarios->comentario, base_url().'dist/smileys'); ?> <?= $this->muro_m->tags_format($comentarios->tags); ?> <br> 
+                            Hace <?= $this->muro_m->tiempo($comentarios->fecha); ?>
                         </td>
                     </tr>
                 </table>

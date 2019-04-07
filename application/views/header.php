@@ -22,26 +22,27 @@
                     <h1 class="white-text"><b>FaceTec</b></h1>
                 </div>
             </div>
-            <div class=" col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <div class=" col-xs-8 col-sm-8 col-md-8 col-lg-8 ">
+            <div class=" col-xs-6 col-sm-6 col-md-6 col-lg-4">
+            
                     <div class="login-wrapper pull-right">
                         <?= form_open('login/ingresar','class="form-inline form" '); ?>
                             <div class="form-group ">
                                 <label class="white-text mail" for="email ">Email</label><br>
                                 <?= form_input($data_email[0]); ?>
                             </div>
-                            <div class="form-group white-text alignment">
+                            <div class="form-group white-text ">
                                 <label class="white-text mail" for="pwd">Contraseña</label><br>
                                 <?= form_input($data_email[1]); ?>
                             </div>
-                            <?=form_submit("Ingresar",'Ingresar', "class='btn ui-button blue-background white-text' "); ?>
+                        <div class="form-group white-text ">
+                                 <?=form_submit("Ingresar",'Ingresar', "class='btn ui-button blue-background white-text' "); ?>
+                            </div>
+                           
                                 <?=form_close(); ?>
-                                   <!-- <div class="form-group my-input2">
-                                        <a href="#" class="text-color">Olvide la contraseña?</a>
-                                    </div> -->
+                    
                     </div>
                 </div>
-                <div class="col-xs-4 col-sm-4 col-md-4 ol-lg-4"></div>
+           
             </div>
-        </div>
+    
     </header>

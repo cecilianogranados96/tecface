@@ -24,7 +24,7 @@
         <div class="search-box">
             <div class="input-group">
                  <?= form_open('muro'); ?>
-                    <input aria-describedby="basic-addon2" name="buscar" class="form-control" placeholder="Buscar Face-Tec" type="text"  <?php if($this->input->post('buscar') != ''){echo 'value="'.$this->input->post('buscar').'"'; }?>/>
+                    <input aria-describedby="basic-addon2" name="buscar" class="form-control" placeholder="Buscar en Face-Tec" type="text"  <?php if($this->input->post('buscar') != ''){echo 'value="'.$this->input->post('buscar').'"'; }?>/>
                 <?=form_close(); ?>
             </div>
         </div>

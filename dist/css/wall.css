@@ -649,7 +649,7 @@ textarea,
 .right-content ul:nth-child(2) {
   list-style: none;
   padding: 0;
-  height: 100%;
+  height: 90%;
   overflow: auto;
 }
 .right-content ul:nth-child(2) h4 {

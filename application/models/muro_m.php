@@ -9,7 +9,6 @@ class muro_m extends CI_Model {
                 'id_usuario'  => $_SESSION['usuario']
         );
         $this->db->insert('post', $data);
-        echo "<script>alert('Insertado con exito');</script>";
         echo "<script>window.location.href = '../../index.php/muro';</script>";
     }
     
@@ -22,13 +21,12 @@ class muro_m extends CI_Model {
                 'id_usuario' => $_SESSION['usuario']
         );
         $this->db->insert('comentario', $data);
-        echo "<script>alert('Comentado con exito');</script>";
-        echo "<script>window.location.href = '../../index.php/muro';</script>";
+        echo "<script>window.location.href = '../../index.php/muro#".$this->input->post('id_post')."';</script>";
     }   
     
     public function get_comentario($id){
         $this->load->database();
-        $query = $this->db->query("SELECT comentario.comentario,comentario.tags,comentario.fecha,usuario.nombre FROM `comentario`,usuario WHERE comentario.id_usuario = usuario.id_usuario and comentario.id_post = '".$id."' ");
+        $query = $this->db->query("SELECT comentario.comentario,comentario.tags,comentario.fecha,usuario.nombre FROM `comentario`,usuario WHERE comentario.id_usuario = usuario.id_usuario and comentario.id_post = '".$id."' order by fecha");
         return $query->result();
     }
 
@@ -57,13 +55,13 @@ class muro_m extends CI_Model {
     public function like($post){
         $this->load->database();
         $query = $this->db->query("INSERT INTO `likes`(`id_post`, `id_usuario`) VALUES ('$post','".$_SESSION['usuario']."')");
-        echo "<script>window.location.href = '../../muro';</script>";  
+        echo "<script>window.location.href = '../../muro#$post';</script>";  
     }
     
     public function dislike($post){
         $this->load->database();
         $query = $this->db->query("DELETE FROM `likes` WHERE `id_post` = '$post' and `id_usuario` = '".$_SESSION['usuario']."'");
-        echo "<script>window.location.href = '../../muro';</script>";  
+        echo "<script>window.location.href = '../../muro#$post';</script>";  
     }
     
     public function likes_total($id){
@@ -73,11 +71,12 @@ class muro_m extends CI_Model {
     }
     
     public function tags_format($tags){
-        $tags = explode(",",$tags); 
-        $texto = "";
-        foreach($tags as $valor){
-            $texto .= "<a href='#$valor'>#$valor</a> -";
-        }
+        $tags = explode(",",$tags);
+         $texto = "";
+         foreach($tags as $valor){
+            if ($valor != "")
+                $texto .= "<a href='#$valor'>#$valor</a> -";
+         }
         return "<i>".substr($texto,0,-1)."</i>";
     }
     
@@ -164,7 +163,6 @@ class muro_m extends CI_Model {
         $amigos = $this->remover($id,$amigos);
         $amigos = json_encode(array_values($amigos));
         $query = $this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'");
-        //echo "<script>alert('Eliminado con exito');</script>";
         echo "<script>window.location.href = '../../muro';</script>";  
     }
 
@@ -178,7 +176,6 @@ class muro_m extends CI_Model {
         array_push($amigos,(int) $id);
         $amigos = json_encode(array_values($amigos));
         $query = $this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'");
-        //echo "<script>alert('Amigo Agregado con exito');</script>";
         echo "<script>window.location.href = '../../muro';</script>";
     }
     
@@ -189,7 +186,6 @@ class muro_m extends CI_Model {
         array_push($amigos,(int) $id);
         $amigos = json_encode(array_values($amigos));
         $query = $this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'");
-        echo "<script>alert('Amigo Agregado con exito');</script>";
         echo "<script>window.location.href = '../../muro/';</script>";
     }
 }
