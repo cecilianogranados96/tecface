@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="CodeIgniter Application Test Suite" tests="10" assertions="17" errors="0" failures="0" skipped="0" time="0.031835">
+    <testsuite name="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="0.013465">
+      <testcase name="test_login_ingresar_sin_parametros" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="8" assertions="2" time="0.007297"/>
+      <testcase name="test_login_ingresar_usuario_correcto_pass_incorrecto" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="13" assertions="2" time="0.002887"/>
+      <testcase name="test_login_ingresar_usuario_correcto_pass_correcto" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="22" assertions="2" time="0.003281"/>
+    </testsuite>
+    <testsuite name="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" tests="4" assertions="8" errors="0" failures="0" skipped="0" time="0.013545">
+      <testcase name="test_publicar_sin_parametros" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="8" assertions="2" time="0.002540"/>
+      <testcase name="test_publicar_con_parametros" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="13" assertions="2" time="0.004944"/>
+      <testcase name="test_comentar_con_archivo" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="28" assertions="2" time="0.003118"/>
+      <testcase name="test_comentar_sin_archivo" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="42" assertions="2" time="0.002943"/>
+    </testsuite>
+    <testsuite name="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.004825">
+      <testcase name="test_likes_total" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="9" assertions="1" time="0.002342"/>
+      <testcase name="test_tags_format_datos" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="16" assertions="1" time="0.001308"/>
+      <testcase name="test_tags_format_vacio" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="23" assertions="1" time="0.001175"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

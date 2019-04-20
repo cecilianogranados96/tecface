@@ -1,7 +1,7 @@
 <div class="feed-content" style="width: 60%;">
     
     <div class="recentcontainer">
-        <?= form_open('muro/publicar'); ?>
+        <?= form_open_multipart('muro/publicar'); ?>
         <ul class="newpostheader nav nav-tabs nav-justified">
             <li>
                 <a href="javascript:void(0)">
@@ -14,6 +14,11 @@
             <textarea placeholder="En que estas pensando..." name="descripcion_post"></textarea>
         </div>
         <table class="table newpostfooter">
+            <tr>
+                <td colspan="3">
+                     <input type="file" class="form-control" name="archivo_post">
+                </td>
+            </tr>
             <tr>
                 <td style="width: 85%;">
                     <input class="input-tags" name="tags_post" id="input-tags" placeholder="Digite un tag y presione enter" >
@@ -43,15 +48,27 @@
         foreach($this->muro_m->get_post() as $row){ ?>
     <div class="recentcontainer" id="<?=$row->id_post;?>">
         <div class="newpostheader">
-            <center>
-                <span class="name"><h3><?= $row->nombre; ?></h3></span>
-                <a class="date">Hace <?= $this->muro_m->tiempo($row->fecha); ?></a> - <?= $row->tipo; ?>
-                </center>
+                <table class="table" border="0">
+                    <tr>
+                        <td style="width: 10%;"><?= $this->muro_m->get_img_perfil($row->id_usuario,80,80); ?></td>
+                        <td>
+                            <center>
+                                <span class="name"><h3><?= $row->nombre; ?></h3></span>
+                                <a class="date">Hace <?= $this->muro_m->tiempo($row->fecha); ?></a> - <?= $row->tipo; ?>
+                            </center>
+                        </td>  
+                    </tr>
+                </table>
+           
         </div>
+       
         <div class="postcontent">
+            <?php 
+            if($row->img_post != '' ){ 
+                echo "<center><img src='".base_url()."dist/img_publicaciones/".$row->img_post."' width='50%' ></center>";
+            }
+            ?>
             <h2> <?= parse_smileys( $row->descripcion, base_url().'dist/smileys'); ?></h2>
-            
-            
             <h4> <?= $this->muro_m->tags_format($row->tags); ?></h4>
         </div>
         <div class="commentpost" style="padding: 1%;">
@@ -79,21 +96,75 @@
                 </tr>
             </table>
             <hr>
-
-            <?php foreach($this->muro_m->get_comentario($row->id_post) as $comentarios){ ?>
+           
+            <?php foreach($this->muro_m->get_comentario($row->id_post) as $comentarios){  ?>
             <table style="padding: 1%;">
                     <tr>
                         <td>
-                            <b><?= $comentarios->nombre; ?></b> <?= parse_smileys( $comentarios->comentario, base_url().'dist/smileys'); ?> <?= $this->muro_m->tags_format($comentarios->tags); ?> <br> 
-                            Hace <?= $this->muro_m->tiempo($comentarios->fecha); ?>
+                              <?= $this->muro_m->get_img_perfil($comentarios->id_usuario,50,50); ?>          
+                        </td>                
+                        <td>
+                            <b><?= $comentarios->nombre; ?></b>
+                            <?= parse_smileys( $comentarios->comentario, base_url().'dist/smileys'); ?> 
+                            <?= $this->muro_m->tags_format($comentarios->tags); ?> <br> 
+                            <?php
+                                if($comentarios->img_comentario != '' ){ 
+                                    echo "<center><img src='".base_url()."dist/img_publicaciones/".$comentarios->img_comentario."' style='width:40%;height: 20%;'></center> <br>";
+                                }
+                            ?>
+                            
+                            Hace <?= $this->muro_m->tiempo($comentarios->fecha); ?> <a href="<?php echo base_url()."index.php/muro?id=".$comentarios->id_comentario."#comentar_".$row->id_post; ?>">Comentar</a> 
                         </td>
                     </tr>
                 </table>
             <hr>
+                <?php foreach($this->muro_m->get_comentario_parent($comentarios->id_comentario) as $comentarios_parent){  ?>
+                    <table style="padding: 5%;margin-left: 10%;" id=likes_coment_<?=$comentarios_parent->id_comentario;?>>
+                            <tr>
+                                <td>
+                                      <?= $this->muro_m->get_img_perfil($comentarios_parent->id_usuario,50,50); ?>          
+                                </td>                
+                                <td>
+                                    <b><?= $comentarios_parent->nombre; ?></b>
+                                    <?= parse_smileys( $comentarios_parent->comentario, base_url().'dist/smileys'); ?> 
+                                    <?= $this->muro_m->tags_format($comentarios_parent->tags); ?> <br> 
+                                    <?php
+                                        if($comentarios_parent->img_comentario != '' ){ 
+                                            echo "<center><img src='".base_url()."dist/img_publicaciones/".$comentarios_parent->img_comentario."' style='width:40%;height: 20%;'></center> <br>";
+                                        }
+                                    ?>
+                                    Hace <?= $this->muro_m->tiempo($comentarios_parent->fecha); ?>
+                                    
+
+                              <a href="<?php echo base_url()."index.php/muro?id=".$comentarios_parent->id_comentario."#comentar_".$row->id_post; ?>">Comentar</a>  -   
+                                    
+                                <a data-toggle="collapse" href="#likes_coment_<?=$comentarios_parent->id_comentario; ?>" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                                    (<?= $this->muro_m->likes_total_comentario($comentarios_parent->id_comentario) ?>)
+                                </a>
+                                    <?= $this->muro_m->boton_like_comentario($comentarios_parent->id_comentario) ?>
+                                <div class="collapse" id="likes_coment_<?=$comentarios_parent->id_comentario;?>">
+                                <?php 
+                                    foreach($this->muro_m->get_likes_comentario($comentarios_parent->id_comentario) as $likes){ 
+                                        echo "- ".$likes->nombre."<br>";
+                                    } 
+                                ?>
+                                </div>                                    
+                                </td>
+                            </tr>
+                        </table>
+            <hr>
+            
+                <?php } ?>
+            
             <?php } ?>
-            <div class="input-group">
-                <?= form_open('muro/comentar'); ?>
+            <div class="input-group" id="comentar_<?php echo $row->id_post; ?>">
+                <?= form_open_multipart('muro/comentar'); ?>
                 <table style="width: 100%;">
+                    <tr>
+                        <td colspan="3">
+                             <input type="file" class="form-control" name="comentario_file" >
+                        </td>
+                    </tr>
                     <tr>
                         <td colspan="2">
                             <textarea class="form-control" name="comentario" placeholder="Escribir un comentario..." style="width: 100%; height: 60px;" required></textarea>
@@ -101,8 +172,15 @@
                     </tr>
                     <tr>
                         <td style="width: 88%;">
+                            
                             <input class="input-tags"  id="input-tags" name="tags_comentario" placeholder="Digite un tag y precione enter" style="width: 100%;">
                             <input  name="id_post" value="<?= $row->id_post; ?>" style="display:none;">
+                            <?php if(isset($_GET['id'])){
+                                $id_parent = $_GET['id'];
+                            }else{
+                                $id_parent = 0;
+                            } ?>
+                            <input  name="id_parent" value="<?= $id_parent; ?>" style="display:none;">
                         </td>
                         <td>
                             <center><?=form_submit("Publicar",'Publicar', "class='btn btn-success' style='height: 35px;' "); ?></center>
@@ -128,13 +206,11 @@
             $amigos = array();
         }
          foreach($this->muro_m->get_usuarios() as $row){
-             echo ' <li>
-            <a href="">
-                <h4><b>'.$row->nombre.'</b></h4><br>'; 
+             echo ' <li>'.$this->muro_m->get_img_perfil($row->id_usuario,50,50).' <h4> <b> <center>'.$row->nombre.'</center></b></h4><br>'; 
                 if (!in_array($row->id_usuario, $amigos)){
                     echo '<center><a href="muro/hacer_amigo/'.$row->id_usuario.'" class="btn btn-info" style="position: inherit;" >Hacer Amigos</a></center>';
                 }else{
-                    echo '<center><a href="muro/eliminar_amigo/'.$row->id_usuario.'" class="btn btn-danger" style=";position: relative;" >Eliminar Amigo</a></center>';
+                    echo '<center><a href="muro/eliminar_amigo/'.$row->id_usuario.'" class="btn btn-danger" style=";position: relative;" >Eliminar Amigo</center>';
                 }
             echo '</a></li>';
             } ?>

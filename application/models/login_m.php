@@ -10,7 +10,13 @@ class login_m extends CI_Model {
             'usuario'          => $this->input->post('usuario'),
             'fecha_nacimiento' => $this->input->post('fecha_nacimiento')
         );
-        //$this->db->db_debug = false;
+        
+        $config['upload_path']          = './dist/img_perfil/';
+        $config['allowed_types']        = '*';
+        $config['file_name']        = $this->input->post('usuario').".png";
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('archivo');
+
         if(!$this->db->insert('usuario', $datos)){
             echo "<script>alert('ERROR Usuario registrado anteriormente');</script>";
         }else{
@@ -25,16 +31,16 @@ class login_m extends CI_Model {
         $pass = md5($this->input->post('password'));
         $query = $this->db->query("SELECT usuario FROM usuario where usuario = '".$usuario."' ");
         if ($query->num_rows() == 0){
-            header('Location: ../../?error_login=1');
+             redirect('../../index.php?error_login=1', 'Location');
         }else{
             $query = $this->db->query("SELECT password FROM usuario where password = '".$pass."' ");
             if ($query->num_rows() == 0){
-               header('Location: ../../?error_login=2'); 
+                 redirect('../../index.php?error_login=2', 'Location');
             }else{
                 $query = $this->db->query("SELECT usuario,password,id_usuario FROM usuario where password = '".$pass."' and usuario = '".$usuario."'  ");
                 $row = $query->row_array();
                 $_SESSION['usuario'] = $row['id_usuario'];
-                header('Location: ../muro');
+                redirect('../index.php/muro', 'Location');
             }
         }
 	}

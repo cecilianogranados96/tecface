@@ -39,5 +39,16 @@ class Muro extends CI_Controller {
 		$this->muro_m->dislike($this->uri->segment(3));
 	}
     
+    public function like_coment(){
+        $this->load->model('muro_m');
+		$this->muro_m->like_coment($this->uri->segment(3));
+	}
+
+    public function dislike_coment(){
+        $this->load->model('muro_m');
+		$this->muro_m->dislike_coment($this->uri->segment(3));
+	}
+    
+    
     
 }
