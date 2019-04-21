@@ -23,8 +23,6 @@ class Muro_post_test extends TestCase
         $this->assertRedirect('muro', 302);
     }
 
-
-    
     public function test_comentar_con_archivo(){
         $output = $this->request(
 			'POST',
@@ -52,6 +50,68 @@ class Muro_post_test extends TestCase
 		);
         $this->assertRedirect('muro#14', 302);
     }
+
+    
+    public function test_hacer_amigo_correcto(){
+        $output = $this->request('POST',['muro', 'hacer_amigo','8']);
+        $this->assertRedirect('muro', 302);
+    }
+    
+    public function test_hacer_amigo_incorrecto(){
+        $output = $this->request('POST',['muro', 'hacer_amigo','16']);
+        $this->assertRedirect('muro', 302);
+    }
+    
+    public function test_eliminar_amigo_correcto(){
+        $output = $this->request('POST',['muro', 'eliminar_amigo','8']);
+        $this->assertRedirect('muro', 302);
+    }
+    
+    public function test_eliminar_amigo_incorrecto(){
+        $output = $this->request('POST',['muro', 'eliminar_amigo','9']);
+        $this->assertRedirect('muro', 302);
+    }
+
+    public function test_like_correcto(){
+        $output = $this->request('POST',['muro', 'like','19']);
+        $this->assertRedirect('muro#19', 302);
+    }
+    
+    public function test_like_incorrecto(){
+        $output = $this->request('POST',['muro', 'like','16']);
+        $this->assertRedirect('muro#16', 302);
+    }
+    
+    public function test_dislike_incorrecto(){
+        $output = $this->request('POST',['muro', 'dislike','16']);
+        $this->assertRedirect('muro#16', 302);
+    }
+
+    public function test_dislike_correcto(){
+        $output = $this->request('POST',['muro', 'dislike','19']);
+        $this->assertRedirect('muro#19', 302);
+    } 
+    
+    public function test_like_comment_correcto(){
+        $output = $this->request('POST',['muro', 'like_coment','19']);
+        $this->assertRedirect('muro#likes_coment_19', 302);
+    }
+    
+    public function test_like_comment_incorrecto(){
+        $output = $this->request('POST',['muro', 'like_coment','16']);
+        $this->assertRedirect('muro#likes_coment_16', 302);
+    }
+    
+    public function test_dislike_comment_incorrecto(){
+        $output = $this->request('POST',['muro', 'dislike_coment','16']);
+        $this->assertRedirect('muro#likes_coment_16', 302);
+    }
+
+    public function test_dislike_comment_correcto(){
+        $output = $this->request('POST',['muro', 'dislike_coment','19']);
+        $this->assertRedirect('muro#likes_coment_19', 302);
+    } 
+    
     
     
     

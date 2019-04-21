@@ -109,7 +109,7 @@
                             <?= $this->muro_m->tags_format($comentarios->tags); ?> <br> 
                             <?php
                                 if($comentarios->img_comentario != '' ){ 
-                                    echo "<center><img src='".base_url()."dist/img_publicaciones/".$comentarios->img_comentario."' style='width:40%;height: 20%;'></center> <br>";
+                                    echo "<center><img src='".base_url()."dist/img_publicaciones/".$comentarios->img_comentario."' style='width:200px;height: 200px;'></center> <br>";
                                 }
                             ?>
                             
@@ -130,13 +130,10 @@
                                     <?= $this->muro_m->tags_format($comentarios_parent->tags); ?> <br> 
                                     <?php
                                         if($comentarios_parent->img_comentario != '' ){ 
-                                            echo "<center><img src='".base_url()."dist/img_publicaciones/".$comentarios_parent->img_comentario."' style='width:40%;height: 20%;'></center> <br>";
+                                            echo "<center><img src='".base_url()."dist/img_publicaciones/".$comentarios_parent->img_comentario."' style='width:200px;height: 200px;'></center> <br>";
                                         }
                                     ?>
                                     Hace <?= $this->muro_m->tiempo($comentarios_parent->fecha); ?>
-                                    
-
-                              <a href="<?php echo base_url()."index.php/muro?id=".$comentarios_parent->id_comentario."#comentar_".$row->id_post; ?>">Comentar</a>  -   
                                     
                                 <a data-toggle="collapse" href="#likes_coment_<?=$comentarios_parent->id_comentario; ?>" role="button" aria-expanded="false" aria-controls="collapseExample2">
                                     (<?= $this->muro_m->likes_total_comentario($comentarios_parent->id_comentario) ?>)

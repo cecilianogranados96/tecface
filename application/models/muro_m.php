@@ -49,6 +49,7 @@ class muro_m extends CI_Model {
         $query = $this->db->query("SELECT comentario.id_comentario, comentario.comentario,comentario.id_usuario,comentario.img_comentario,comentario.id_comentario,comentario.tags,comentario.fecha,usuario.nombre FROM `comentario`,usuario WHERE comentario.id_usuario = usuario.id_usuario and comentario.id_post = '".$id."' and comentario.id_parent = 0 order by fecha");
         return $query->result();
     }
+    
     public function get_comentario_parent($id){
         $this->load->database();
         $query = $this->db->query("SELECT comentario.comentario,comentario.id_usuario,comentario.img_comentario,comentario.id_comentario,comentario.tags,comentario.fecha,usuario.nombre FROM `comentario`,usuario WHERE comentario.id_usuario = usuario.id_usuario and comentario.id_parent = '".$id."' order by fecha");
@@ -80,31 +81,33 @@ class muro_m extends CI_Model {
     public function like($post){
         $this->load->database();
         $query = $this->db->query("INSERT INTO `likes`(`id_post`, `id_usuario`) VALUES ('$post','".$_SESSION['usuario']."')");
-        redirect(base_url()."index.php/muro#$post", 'Location');
+        if ($query)
+            redirect(base_url()."index.php/muro#$post", 'Location');
+        else
+            redirect(base_url()."index.php/muro#error", 'Location');
     }
     
     public function dislike($post){
         $this->load->database();
         $query = $this->db->query("DELETE FROM `likes` WHERE `id_post` = '$post' and `id_usuario` = '".$_SESSION['usuario']."'");
-        redirect(base_url()."index.php/muro#$post", 'Location');
+        if ($query)
+            redirect(base_url()."index.php/muro#$post", 'Location');
+        else
+            redirect(base_url()."index.php/muro#error", 'Location');
     }
     
     public function like_coment($post){
         $this->load->database();
         $query = $this->db->query("INSERT INTO `like_comentario`(`id_comentario`, `id_usuario`) VALUES ('$post','".$_SESSION['usuario']."')");
-        //echo "<script>window.location.href = '../../muro#likes_coment_$post';</script>";  
          redirect(base_url()."index.php/muro#likes_coment_$post", 'Location');
     }
     
-     public function dislike_coment($post){
+    public function dislike_coment($post){
         $this->load->database();
         $query = $this->db->query("DELETE FROM `like_comentario` WHERE `id_comentario` = '$post' and `id_usuario` = '".$_SESSION['usuario']."'");
-        //echo "<script>window.location.href = '../../muro#likes_coment_$post';</script>"; 
          redirect(base_url()."index.php/muro#likes_coment_$post", 'Location');
     }
-    
-    
-    
+
     public function likes_total($id){
         $this->load->database();
         $query = $this->db->query("SELECT id_post FROM likes where `id_post` = '$id'");
@@ -116,7 +119,6 @@ class muro_m extends CI_Model {
         $query = $this->db->query("SELECT id_comentario FROM like_comentario where `id_comentario` = '$id'");
         return $query->num_rows();
     }
-    
     
     public function tags_format($tags){
         $tags = explode(",",$tags);
@@ -139,9 +141,7 @@ class muro_m extends CI_Model {
        $query = $this->db->query("SELECT usuario.nombre FROM like_comentario,usuario WHERE like_comentario.id_comentario = '$id_post' and usuario.id_usuario = like_comentario.id_usuario");
        return $query->result();
     }
-    
-    
-
+ 
     public function comentarios_total($id){
         $this->load->database();
         $query = $this->db->query("SELECT id_comentario FROM comentario where `id_post` = '$id'");
@@ -156,8 +156,7 @@ class muro_m extends CI_Model {
         }else{
             return '<a href="muro/dislike/'.$id.'"><i class="fa fa-thumbs-down" style="color:#3B5998;"></i> Dislike</a>';;
         }
-        //echo "<script>window.location.href = '../../muro';</script>"; 
-          redirect(base_url()."index.php/muro", 'Location');
+        redirect(base_url()."index.php/muro", 'Location');
     }
     
     public function boton_like_comentario($id){
@@ -167,9 +166,8 @@ class muro_m extends CI_Model {
             return '<a href="muro/like_coment/'.$id.'"><i class="fa fa-thumbs-up" style="color:#3B5998;"></i> Like</a>';
         }else{
             return '<a href="muro/dislike_coment/'.$id.'"><i class="fa fa-thumbs-down" style="color:#3B5998;"></i> Dislike</a>';;
-        }
-        //echo "<script>window.location.href = '../../muro';</script>";  
-          redirect(base_url()."index.php/muro", 'Location');
+        } 
+        redirect(base_url()."index.php/muro", 'Location');
     }
     
     public function get_post(){ //FUNCION DEL MURO 
@@ -231,7 +229,7 @@ class muro_m extends CI_Model {
         return $query->result();
     }
     
-    public function remover($valor,$arr){
+    public function remover($valor = 0,$arr){
         foreach (array_keys($arr, $valor) as $key) {
             unset($arr[$key]);
         }
@@ -244,9 +242,10 @@ class muro_m extends CI_Model {
         $amigos = json_decode($query->result()[0]->amigos);
         $amigos = $this->remover($id,$amigos);
         $amigos = json_encode(array_values($amigos));
-        $query = $this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'");
-        //echo "<script>window.location.href = '../../muro';</script>";  
-          redirect(base_url()."index.php/muro", 'Location');
+        if($this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'"))
+            redirect(base_url()."index.php/muro", 'Location');
+        else
+            redirect(base_url()."index.php/muro/error", 'Location');
     }
 
     public function hacer_amigo($id){
@@ -258,9 +257,12 @@ class muro_m extends CI_Model {
         }
         array_push($amigos,(int) $id);
         $amigos = json_encode(array_values($amigos));
-        $query = $this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'");
-        //echo "<script>window.location.href = '../../muro';</script>";
-        redirect(base_url()."index.php/muro", 'Location');
+        if($this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'")){
+             redirect(base_url()."index.php/muro", 'Location');
+        }else{
+             redirect(base_url()."index.php/muro", 'Location');
+        }
+        
     }
     
     public function muro(){
@@ -270,8 +272,7 @@ class muro_m extends CI_Model {
         array_push($amigos,(int) $id);
         $amigos = json_encode(array_values($amigos));
         $query = $this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'");
-        //echo "<script>window.location.href = '../../muro/';</script>";
-          redirect(base_url()."index.php/muro", 'Location');
+        redirect(base_url()."index.php/muro", 'Location');
     }
 }
 ?>

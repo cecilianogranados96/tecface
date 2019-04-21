@@ -20,7 +20,6 @@ class Login extends CI_Controller {
 		$this->login_m->registrarse();
 	}
 
-
     public function salir(){
         session_destroy();
         header('Location: '.base_url().'');
