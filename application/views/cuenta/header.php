@@ -30,7 +30,7 @@
         </div>
         <div class="right-group">
             <div class="link-group">
-                <a href="<?php echo base_url(); ?>index.php/muro">  <?= $this->muro_m->get_img_perfil($_SESSION['usuario'],50,50); ?> <i class="fa fa-user"></i> <?= $this->muro_m->get_nombre(); ?></a>
+                <a href="<?php echo base_url(); ?>index.php/muro/editar/">  <?= $this->muro_m->get_img_perfil($_SESSION['usuario'],50,50); ?> <i class="fa fa-user"></i> <?= $this->muro_m->get_nombre(); ?></a>
             </div>
             <div class="notification-group">
                 <div class="link-group">

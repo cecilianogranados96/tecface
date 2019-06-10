@@ -196,7 +196,11 @@
      <h2>
       Personas<br>
     </h2>
-    <ul>
+        <h4>
+         <input id="searchTerm" type="text" onkeyup="doSearch()" placeholder="Buscar amigos" class="form-control"  />
+        </h3>
+        
+    <ul id="datos" style="width: 100%;height: 80%;" >
         <?php 
         $amigos = json_decode($this->muro_m->get_lista_amigos()[0]->amigos);
         if($amigos == ""){
@@ -214,4 +218,44 @@
     </ul>
     </div>
 </div>
+
+
+
+	<script language="javascript">
+		function doSearch()
+		{
+			var tableReg =  document.getElementById("datos").getElementsByTagName("li");
+			var searchText = document.getElementById('searchTerm').value.toLowerCase();
+			var cellsOfRow="";
+			var found=false;
+			var compareWith="";
+ 
+			// Recorremos todas las filas con contenido de la tabla
+			for (var i = 0; i < tableReg.length; i++)
+			{
+                
+				cellsOfRow = tableReg[i].getElementsByTagName('h4');
+				found = false;
+				// Recorremos todas las celdas
+				for (var j = 0; j < cellsOfRow.length && !found; j++)
+				{
+					compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+					// Buscamos el texto en el contenido de la celda
+					if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+					{
+						found = true;
+					}
+				}
+				if(found)
+				{
+					tableReg[i].style.display = '';
+				} else {
+					// si no ha encontrado ninguna coincidencia, esconde la
+					// fila de la tabla
+					tableReg[i].style.display = 'none';
+				}
+			}
+		}
+	</script>
+
 

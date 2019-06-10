@@ -62,20 +62,58 @@ class muro_m extends CI_Model {
         return $query->result();
     }
 
-    function tiempo($tiempo) {
+    
+    function tiempo($past = '', $now = ''){
+        $past = is_string($past)? strtotime($past): (int) $past;
+        $now = is_string($now)? strtotime($now): (int) $now;
+        $now = $now <= 0? time(): $now;
+        $diff = $now - $past;
+        if ($diff < 60){
+            return 'menos de un minuto';
+        }else{
+            if ($diff < 120){
+                return 'hace un minuto';
+            }else{
+                if ($diff < (60 *60)){
+                    return round(($diff /60),0) . ' minutos';
+                }else{
+                    if ($diff < (120 *60)){
+                        return ' una hora';
+                    }else{
+                        if ($diff < (24 *60 *60)){
+                            return round(($diff /3600),0) . ' horas';
+                        }else{
+                            if ($diff < (48 *60 *60)){
+                                return ' un dia';
+                            }else{
+                                return  round(($diff /86400),0) . ' dias';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }  
+    
+
+    
+    
+    function tiempo1($tiempo) {
+        $tiempo1 = explode(" ",$tiempo);
+        $tiempo = $tiempo1[0];
         if ($tiempo < 60) {
             $tiempo = $tiempo;
             $valor = " minutos";
         } elseif ($tiempo > 60 && $tiempo < 1440) {
-            $tiempo = $tiempo / 60;
+            $tiempo = $tiempo/60;
             $tiempo = number_format($tiempo);
             $valor = " horas";
         } elseif ($tiempo > 1440) {
-            $tiempo = $tiempo / 1440;
+            $tiempo = $tiempo/1440;
             $tiempo = number_format($tiempo);
             $valor = " día";
         }
-        return $tiempo . $valor;
+        return $tiempo.$valor;
     } 
     
     public function like($post){
@@ -193,7 +231,7 @@ class muro_m extends CI_Model {
             post.tags,
             post.img_post,
             if(post.tipo = 1,'<i class=\'fa fa-globe\'></i> Público',' <i class=\'fa fa-ban\'></i> Privado') as tipo, 
-            TIMESTAMPDIFF(MINUTE,post.fecha,NOW()) as fecha,
+            post.fecha,
             post.id_usuario,
             usuario.nombre 
         FROM 
@@ -265,6 +303,7 @@ class muro_m extends CI_Model {
         
     }
     
+    
     public function muro(){
         $this->load->database();
         $query = $this->db->query("SELECT amigos from usuario where id_usuario = '".$_SESSION['usuario']."'");
@@ -274,5 +313,14 @@ class muro_m extends CI_Model {
         $query = $this->db->query("UPDATE `usuario` SET `amigos`='".$amigos."' WHERE  id_usuario = '".$_SESSION['usuario']."'");
         redirect(base_url()."index.php/muro", 'Location');
     }
+    
+    public function get_datos_usuario(){
+        $this->load->database();
+        $query = $this->db->query("SELECT * from usuario where id_usuario = '".$_SESSION['usuario']."' ");
+        return $query->result();
+    }
+    
+    
+    
 }
 ?>

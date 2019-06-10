@@ -8,6 +8,13 @@ class Muro extends CI_Controller {
 		$this->load->view('cuenta/muro');
         $this->load->view('cuenta/fotter');  
 	}
+
+	public function editar(){
+        $this->load->model('muro_m');
+        $this->load->view('cuenta/header');
+		$this->load->view('cuenta/editar');
+        $this->load->view('cuenta/fotter');  
+	}
     
    	public function publicar(){
         $this->load->model('muro_m');

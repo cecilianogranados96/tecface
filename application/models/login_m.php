@@ -24,6 +24,48 @@ class login_m extends CI_Model {
         }
         echo "<script>window.location.href = '../../index.php';</script>";
 	}
+
+    
+    
+    
+    public function editar(){
+        
+        
+        $this->load->database();
+        $datos = array(
+            'nombre'           => $this->input->post('nombre'),
+            'email'            => $this->input->post('email'),
+            'fecha_nacimiento' => $this->input->post('fecha_nacimiento')
+        );
+      
+        if ($this->input->post('password') != ""){
+                $datos = array(
+                    'nombre'           => $this->input->post('nombre'),
+                    'email'            => $this->input->post('email'),
+                    'fecha_nacimiento' => $this->input->post('fecha_nacimiento'),
+                    'password' => md5($this->input->post('password'))
+                );
+        }
+
+        $config['upload_path']          = './dist/img_perfil/';
+        $config['allowed_types']        = '*';
+        $config['overwrite']        = true;
+        $config['file_name']        = $this->input->post('usuario').".png";
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('archivo');
+        
+        
+        $this->db->where('id_usuario',$_SESSION['usuario']);
+        
+        if(!$this->db->update('usuario', $datos)){
+            echo "<script>alert('Exito actualizado con exito');</script>";
+        }
+                           
+        echo "<script>window.location.href = '../../../index.php/muro/editar/';</script>";
+	}
+    
+    
+    
     
     public function ingresar(){
         $this->load->database();
@@ -44,5 +86,25 @@ class login_m extends CI_Model {
             }
         }
 	}
+    
+    public function ingresar_FB(){
+        echo $consulta = "SELECT * FROM usuario where email = '".$_GET['email']."'";
+        $query = $this->db->query($consulta);
+        $row = $query->row_array();
+        
+        if($query->num_rows() == 0){
+            session_destroy();
+            redirect('../index.php?error_message=Usuario no registrado&error=1', 'Location');
+            
+        }else{
+            $_SESSION['usuario'] = $row['id_usuario'];
+            redirect('../index.php/muro', 'Location');
+        }
+        
+        
+        
+        
+    }
+    
 }
 ?>

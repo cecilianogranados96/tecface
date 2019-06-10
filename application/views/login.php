@@ -18,7 +18,7 @@ $data_registro = array(
                     <div class=" col-xs-8 col-sm-8 col-md-8col-lg-8 custom-pad">
                         <h3 class="connect">FaceTec ayuda a conectarte con<br> personas en tu vida.
                         </h3>
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/GwFs3_KxNjS.png" alt="image" class="world-img text-center">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/OBaVg52wtTZ.png" alt="image" class="world-img text-center">
                     </div>
                 </div>
                 
@@ -29,6 +29,9 @@ $data_registro = array(
                                     echo "<div class='alert alert-danger' style='width: 65%;'><b><center>Usuario Incorrecto</center></b></div>";
                                 if ($_GET['error_login'] == 2)
                                     echo "<div class='alert alert-danger' style='width: 65%;'><b><center>Password Incorrecto</center></b></div>";
+                            }
+                            if (isset($_GET['error_message'])){
+                                echo "<div class='alert alert-danger' style='width: 65%;'><b><center>".$_GET['error_message']."</center></b></div>";
                             }
                         ?>
                     <div class="text-left">    
