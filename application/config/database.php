@@ -8,10 +8,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'TECFACE',
+	'hostname' => 'sl1.cyberfuel.com',
+	'username' => 'qa_tec',
+	'password' => 'qa123*',
+	'database' => 'qa_tec',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
