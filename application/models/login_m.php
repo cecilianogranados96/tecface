@@ -1,5 +1,5 @@
 <?php
-class login_m extends CI_Model {
+class Login_m extends CI_Model {
         
     public function registrarse(){
         $this->load->database();
@@ -88,6 +88,7 @@ class login_m extends CI_Model {
 	}
     
     public function ingresar_FB(){
+        $this->load->database();
         echo $consulta = "SELECT * FROM usuario where email = '".$_GET['email']."'";
         $query = $this->db->query($consulta);
         $row = $query->row_array();

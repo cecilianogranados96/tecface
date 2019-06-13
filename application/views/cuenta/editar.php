@@ -1,6 +1,6 @@
 <?php 
 
-$datos = $this->muro_m->get_datos_usuario();
+$datos = $this->Muro_m->get_datos_usuario();
 ?>
 <div class="feed-content" style="width: 60%;">
     <div class="text-left">
@@ -57,12 +57,12 @@ $datos = $this->muro_m->get_datos_usuario();
         </h2>
         <ul>
             <?php 
-        $amigos = json_decode($this->muro_m->get_lista_amigos()[0]->amigos);
+        $amigos = json_decode($this->Muro_m->get_lista_amigos()[0]->amigos);
         if($amigos == ""){
             $amigos = array();
         }
-         foreach($this->muro_m->get_usuarios() as $row){
-             echo ' <li>'.$this->muro_m->get_img_perfil($row->id_usuario,50,50).' <h4> <b> <center>'.$row->nombre.'</center></b></h4><br>'; 
+         foreach($this->Muro_m->get_usuarios() as $row){
+             echo ' <li>'.$this->Muro_m->get_img_perfil($row->id_usuario,50,50).' <h4> <b> <center>'.$row->nombre.'</center></b></h4><br>'; 
                 if (!in_array($row->id_usuario, $amigos)){
                     echo '<center><a href="muro/hacer_amigo/'.$row->id_usuario.'" class="btn btn-info" style="position: inherit;" >Hacer Amigos</a></center>';
                 }else{

@@ -2,7 +2,7 @@
 class Muro_test extends UnitTestCase
 {
     public function setUp(){
-		$this->obj = $this->newModel('muro_m');
+		$this->obj = $this->newModel('Muro_m');
         $_SESSION['usuario'] = 8;
 	}
     
@@ -174,7 +174,7 @@ class Muro_test extends UnitTestCase
     
     public function test_get_img_perfil(){
         $resultado = $this->obj->get_img_perfil(8,50,50);
-        $esperado = "<img src='http://localhost/dist/img_perfil/default.png' style='width:50px; height:50px' class='rounded float-left'>";
+        $esperado = "<img src='https://synappcr.com/tecface/dist/img_perfil/default.png' style='width:50px; height:50px' class='rounded float-left'>";
         $this->assertEquals($resultado,$esperado);		
     } 
     

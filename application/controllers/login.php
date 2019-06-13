@@ -12,23 +12,23 @@ class Login extends CI_Controller {
         
     public function ingresar(){
         $this->load->model('Login_m');
-		$this->login_m->ingresar();
+		$this->Login_m->ingresar();
 	}
     
     public function ingresar_FB(){
         $this->load->model('Login_m');
-		$this->login_m->ingresar_FB();
+		$this->Login_m->ingresar_FB();
 	}
     
     public function editar(){
         $this->load->model('Login_m');
-		$this->login_m->editar();
+		$this->Login_m->editar();
 	}
     
     
     public function registrarse(){
         $this->load->model('Login_m');
-		$this->login_m->registrarse();
+		$this->Login_m->registrarse();
 	}
 
     public function salir(){

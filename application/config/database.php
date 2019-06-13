@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 //$active_group = 'default';
-$active_group = 'default';
+$active_group = 'testing';
 
 $query_builder = TRUE;
 

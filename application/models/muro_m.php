@@ -1,5 +1,5 @@
 <?php
-class muro_m extends CI_Model {
+class Muro_m extends CI_Model {
     
     public function publicar(){
         $this->load->database();  

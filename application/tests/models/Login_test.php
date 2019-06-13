@@ -2,7 +2,7 @@
 class Login_test extends TestCase
 {
     public function setUp(){
-		//$this->obj = $this->newModel('login_m');
+		//$this->obj = $this->newModel('Login_m');
 	}
     
     public function test_index(){
