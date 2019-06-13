@@ -1,61 +1,777 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="CodeIgniter Application Test Suite" tests="50" assertions="69" errors="0" failures="0" skipped="0" time="0.117585">
-    <testsuite name="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" tests="5" assertions="8" errors="0" failures="0" skipped="0" time="0.015396">
-      <testcase name="test_index" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="8" assertions="1" time="0.002571"/>
-      <testcase name="test_index_404" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="13" assertions="1" time="0.001234"/>
-      <testcase name="test_login_ingresar_sin_parametros" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="18" assertions="2" time="0.005821"/>
-      <testcase name="test_login_ingresar_usuario_correcto_pass_incorrecto" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="23" assertions="2" time="0.003203"/>
-      <testcase name="test_login_ingresar_usuario_correcto_pass_correcto" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="32" assertions="2" time="0.002567"/>
+  <testsuite name="CodeIgniter Application Test Suite" tests="52" assertions="73" errors="0" failures="0" skipped="0" time="3.760067">
+    <testsuite name="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" tests="7" assertions="12" errors="0" failures="0" skipped="0" time="0.625646">
+      <testcase name="test_index" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="9" assertions="1" time="0.003289">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cookie - headers already sent by (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cache limiter - headers already sent (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+</system-out>
+      </testcase>
+      <testcase name="test_index_404" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="14" assertions="1" time="0.001511">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cookie - headers already sent by (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cache limiter - headers already sent (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+</system-out>
+      </testcase>
+      <testcase name="test_login_ingresar_sin_parametros" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="19" assertions="2" time="0.087401">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cookie - headers already sent by (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cache limiter - headers already sent (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+</system-out>
+      </testcase>
+      <testcase name="test_login_ingresar_usuario_correcto_pass_incorrecto" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="24" assertions="2" time="0.081144">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cookie - headers already sent by (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cache limiter - headers already sent (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+</system-out>
+      </testcase>
+      <testcase name="test_login_ingresar_usuario_correcto_pass_correcto" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="33" assertions="2" time="0.105483">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cookie - headers already sent by (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cache limiter - headers already sent (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+</system-out>
+      </testcase>
+      <testcase name="test_login_facebook" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="43" assertions="2" time="0.256616">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cookie - headers already sent by (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cache limiter - headers already sent (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+</system-out>
+      </testcase>
+      <testcase name="test_login_facebook_no_correcto" class="Login_test" classname="Login_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php" line="52" assertions="2" time="0.090202">
+        <system-out>
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cookie - headers already sent by (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+
+A PHP Error was encountered
+
+Severity:    Warning
+Message:     session_start(): Cannot send session cache limiter - headers already sent (output started at phar:///usr/local/bin/phpunit/phpunit/Util/Printer.php:109)
+Filename:    /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+Line Number: 6
+
+Backtrace:
+	File: /Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Login_test.php
+	Line: 6
+	Function: session_start
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 838
+	Function: setUp
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestResult.php
+	Line: 687
+	Function: runBare
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestCase.php
+	Line: 796
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/Framework/TestSuite.php
+	Line: 746
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/TestRunner.php
+	Line: 641
+	Function: run
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 206
+	Function: doRun
+
+	File: phar:///usr/local/bin/phpunit/phpunit/TextUI/Command.php
+	Line: 162
+	Function: run
+
+	File: /usr/local/bin/phpunit
+	Line: 614
+	Function: main
+
+
+</system-out>
+      </testcase>
     </testsuite>
-    <testsuite name="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" tests="16" assertions="32" errors="0" failures="0" skipped="0" time="0.049112">
-      <testcase name="test_publicar_sin_parametros" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="8" assertions="2" time="0.002108"/>
-      <testcase name="test_publicar_con_parametros" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="13" assertions="2" time="0.004767"/>
-      <testcase name="test_comentar_con_archivo" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="26" assertions="2" time="0.003064"/>
-      <testcase name="test_comentar_sin_archivo" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="40" assertions="2" time="0.003242"/>
-      <testcase name="test_hacer_amigo_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="55" assertions="2" time="0.003236"/>
-      <testcase name="test_hacer_amigo_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="60" assertions="2" time="0.003421"/>
-      <testcase name="test_eliminar_amigo_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="65" assertions="2" time="0.003291"/>
-      <testcase name="test_eliminar_amigo_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="70" assertions="2" time="0.002753"/>
-      <testcase name="test_like_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="75" assertions="2" time="0.002544"/>
-      <testcase name="test_like_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="80" assertions="2" time="0.002349"/>
-      <testcase name="test_dislike_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="85" assertions="2" time="0.002405"/>
-      <testcase name="test_dislike_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="90" assertions="2" time="0.003840"/>
-      <testcase name="test_like_comment_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="95" assertions="2" time="0.004066"/>
-      <testcase name="test_like_comment_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="100" assertions="2" time="0.002712"/>
-      <testcase name="test_dislike_comment_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="105" assertions="2" time="0.002844"/>
-      <testcase name="test_dislike_comment_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="110" assertions="2" time="0.002470"/>
+    <testsuite name="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" tests="16" assertions="32" errors="0" failures="0" skipped="0" time="1.314321">
+      <testcase name="test_publicar_sin_parametros" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="8" assertions="2" time="0.069138"/>
+      <testcase name="test_publicar_con_parametros" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="13" assertions="2" time="0.072704"/>
+      <testcase name="test_comentar_con_archivo" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="26" assertions="2" time="0.092144"/>
+      <testcase name="test_comentar_sin_archivo" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="40" assertions="2" time="0.072490"/>
+      <testcase name="test_hacer_amigo_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="55" assertions="2" time="0.098813"/>
+      <testcase name="test_hacer_amigo_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="60" assertions="2" time="0.089280"/>
+      <testcase name="test_eliminar_amigo_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="65" assertions="2" time="0.079654"/>
+      <testcase name="test_eliminar_amigo_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="70" assertions="2" time="0.097194"/>
+      <testcase name="test_like_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="75" assertions="2" time="0.073853"/>
+      <testcase name="test_like_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="80" assertions="2" time="0.076022"/>
+      <testcase name="test_dislike_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="85" assertions="2" time="0.107107"/>
+      <testcase name="test_dislike_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="90" assertions="2" time="0.081137"/>
+      <testcase name="test_like_comment_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="95" assertions="2" time="0.070930"/>
+      <testcase name="test_like_comment_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="100" assertions="2" time="0.088120"/>
+      <testcase name="test_dislike_comment_incorrecto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="105" assertions="2" time="0.075961"/>
+      <testcase name="test_dislike_comment_correcto" class="Muro_post_test" classname="Muro_post_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_post_test.php" line="110" assertions="2" time="0.069774"/>
     </testsuite>
-    <testsuite name="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" tests="29" assertions="29" errors="0" failures="0" skipped="0" time="0.053077">
-      <testcase name="test_likes_total" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="9" assertions="1" time="0.001896"/>
-      <testcase name="test_likes_total_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="15" assertions="1" time="0.002050"/>
-      <testcase name="test_likes_comentario_total" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="21" assertions="1" time="0.001927"/>
-      <testcase name="test_likes_total_comentario_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="27" assertions="1" time="0.001733"/>
-      <testcase name="test_tags_format_datos" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="33" assertions="1" time="0.000960"/>
-      <testcase name="test_tags_format_vacio" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="39" assertions="1" time="0.000889"/>
-      <testcase name="test_get_comentario_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="45" assertions="1" time="0.002719"/>
-      <testcase name="test_get_comentario_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="52" assertions="1" time="0.001870"/>
-      <testcase name="test_get_comentario_parent_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="63" assertions="1" time="0.002853"/>
-      <testcase name="test_get_comentario_parent_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="70" assertions="1" time="0.003981"/>
-      <testcase name="test_lista_amigos_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="81" assertions="1" time="0.002135"/>
-      <testcase name="test_lista_amigos_sin_amigos" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="89" assertions="1" time="0.001801"/>
-      <testcase name="test_get_likes_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="97" assertions="1" time="0.001806"/>
-      <testcase name="test_get_likes_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="104" assertions="1" time="0.001823"/>
-      <testcase name="test_get_likes_comentario_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="115" assertions="1" time="0.001901"/>
-      <testcase name="test_get_likes_comentario_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="122" assertions="1" time="0.001827"/>
-      <testcase name="test_comentarios_total_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="133" assertions="1" time="0.001862"/>
-      <testcase name="test_comentarios_total_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="139" assertions="1" time="0.001846"/>
-      <testcase name="test_boton_like_correcto_like" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="145" assertions="1" time="0.001711"/>
-      <testcase name="test_boton_like_correcto_dislike" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="151" assertions="1" time="0.001658"/>
-      <testcase name="test_boton_like_comentario_correcto_like" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="157" assertions="1" time="0.001702"/>
-      <testcase name="test_boton_like_comentario_correcto_dislike" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="163" assertions="1" time="0.001801"/>
-      <testcase name="test_get_nombre" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="169" assertions="1" time="0.001909"/>
-      <testcase name="test_get_img_perfil" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="175" assertions="1" time="0.002018"/>
-      <testcase name="test_get_usuarios" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="181" assertions="1" time="0.001976"/>
-      <testcase name="test_remover_correcto_1" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="188" assertions="1" time="0.001046"/>
-      <testcase name="test_remover_correcto_2" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="195" assertions="1" time="0.001440"/>
-      <testcase name="test_remover_correcto_sin_valor" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="202" assertions="1" time="0.001037"/>
-      <testcase name="test_remover_correcto_sin_parametro" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="209" assertions="1" time="0.000900"/>
+    <testsuite name="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" tests="29" assertions="29" errors="0" failures="0" skipped="0" time="1.820100">
+      <testcase name="test_likes_total" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="9" assertions="1" time="0.075121"/>
+      <testcase name="test_likes_total_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="15" assertions="1" time="0.070039"/>
+      <testcase name="test_likes_comentario_total" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="21" assertions="1" time="0.082588"/>
+      <testcase name="test_likes_total_comentario_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="27" assertions="1" time="0.085379"/>
+      <testcase name="test_tags_format_datos" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="33" assertions="1" time="0.002307"/>
+      <testcase name="test_tags_format_vacio" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="39" assertions="1" time="0.001638"/>
+      <testcase name="test_get_comentario_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="45" assertions="1" time="0.075956"/>
+      <testcase name="test_get_comentario_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="52" assertions="1" time="0.066477"/>
+      <testcase name="test_get_comentario_parent_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="63" assertions="1" time="0.090477"/>
+      <testcase name="test_get_comentario_parent_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="70" assertions="1" time="0.076084"/>
+      <testcase name="test_lista_amigos_sin_amigos" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="81" assertions="1" time="0.066100"/>
+      <testcase name="test_get_likes_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="89" assertions="1" time="0.078092"/>
+      <testcase name="test_get_likes_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="96" assertions="1" time="0.071371"/>
+      <testcase name="test_get_likes_comentario_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="107" assertions="1" time="0.073988"/>
+      <testcase name="test_get_likes_comentario_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="114" assertions="1" time="0.086509"/>
+      <testcase name="test_comentarios_total_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="125" assertions="1" time="0.070070"/>
+      <testcase name="test_comentarios_total_incorrecto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="131" assertions="1" time="0.090815"/>
+      <testcase name="test_boton_like_correcto_like" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="137" assertions="1" time="0.084965"/>
+      <testcase name="test_boton_like_correcto_dislike" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="143" assertions="1" time="0.097085"/>
+      <testcase name="test_boton_like_comentario_correcto_like" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="149" assertions="1" time="0.077914"/>
+      <testcase name="test_boton_like_comentario_correcto_dislike" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="155" assertions="1" time="0.089699"/>
+      <testcase name="test_get_nombre" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="161" assertions="1" time="0.070909"/>
+      <testcase name="test_get_img_perfil" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="167" assertions="1" time="0.074240"/>
+      <testcase name="test_remover_correcto_sin_valor" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="174" assertions="1" time="0.002334"/>
+      <testcase name="test_remover_correcto_sin_parametro" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="181" assertions="1" time="0.001836"/>
+      <testcase name="test_remover_correcto_1" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="189" assertions="1" time="0.001420"/>
+      <testcase name="test_remover_correcto_2" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="196" assertions="1" time="0.001211"/>
+      <testcase name="test_lista_amigos_correcto" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="203" assertions="1" time="0.075890"/>
+      <testcase name="test_get_usuarios" class="Muro_test" classname="Muro_test" file="/Applications/XAMPP/xamppfiles/htdocs/tecface/application/tests/models/Muro_test.php" line="211" assertions="1" time="0.079586"/>
     </testsuite>
   </testsuite>
 </testsuites>

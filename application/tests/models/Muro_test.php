@@ -78,14 +78,6 @@ class Muro_test extends UnitTestCase
         $this->assertEquals($resultado,$esperado);		
     } 
     
-    public function test_lista_amigos_correcto(){
-        $resultado = $this->obj->get_lista_amigos();
-        $resultado = $resultado[0]->amigos;
-        $resultado = is_array($resultado);
-        $esperado = false;
-        $this->assertEquals($resultado,$esperado);		
-    }
-    
     public function test_lista_amigos_sin_amigos(){
         $resultado = $this->obj->get_lista_amigos();
         $resultado = $resultado[0]->amigos;
@@ -178,12 +170,21 @@ class Muro_test extends UnitTestCase
         $this->assertEquals($resultado,$esperado);		
     } 
     
-    public function test_get_usuarios(){
-        $resultado = $this->obj->get_usuarios();
-        $resultado = $resultado[0]->nombre;
-        $esperado = "Silvia Calderón";
+    
+    public function test_remover_correcto_sin_valor(){
+        $arreglo = [1,2,3];
+        $resultado = $this->obj->remover(15,$arreglo);
+        $esperado = [0 => 1,1 => 2,2 => 3];
         $this->assertEquals($resultado,$esperado);		
-    }
+    }  
+    
+    public function test_remover_correcto_sin_parametro(){
+        $arreglo = [1,2,3];
+        $resultado = $this->obj->remover(0,$arreglo);
+        $esperado = [0 => 1,1 => 2,2 => 3];
+        $this->assertEquals($resultado,$esperado);		
+    } 
+    //----------------------------------------------
     
     public function test_remover_correcto_1(){
         $arreglo = [1,2,3,4];
@@ -199,19 +200,20 @@ class Muro_test extends UnitTestCase
         $this->assertEquals($resultado,$esperado);		
     }
     
-    public function test_remover_correcto_sin_valor(){
-        $arreglo = [1,2,3];
-        $resultado = $this->obj->remover(15,$arreglo);
-        $esperado = [0 => 1,1 => 2,2 => 3];
+    public function test_lista_amigos_correcto(){
+        $resultado = $this->obj->get_lista_amigos();
+        $resultado = $resultado[0]->amigos;
+        $resultado = is_array($resultado);
+        $esperado = false;
         $this->assertEquals($resultado,$esperado);		
-    }  
+    }
     
-    public function test_remover_correcto_sin_parametro(){
-        $arreglo = [1,2,3];
-        $resultado = $this->obj->remover(0,$arreglo);
-        $esperado = [0 => 1,1 => 2,2 => 3];
+    public function test_get_usuarios(){
+        $resultado = $this->obj->get_usuarios();
+        $resultado = $resultado[0]->nombre;
+        $esperado = "Silvia Calderón";
         $this->assertEquals($resultado,$esperado);		
-    } 
+    }
     
     
 }

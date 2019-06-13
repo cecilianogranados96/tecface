@@ -64,9 +64,6 @@ class Login_m extends CI_Model {
         echo "<script>window.location.href = '../../../index.php/muro/editar/';</script>";
 	}
     
-    
-    
-    
     public function ingresar(){
         $this->load->database();
         $usuario = $this->input->post('usuario');
@@ -89,22 +86,15 @@ class Login_m extends CI_Model {
     
     public function ingresar_FB(){
         $this->load->database();
-        echo $consulta = "SELECT * FROM usuario where email = '".$_GET['email']."'";
+        $consulta = "SELECT * FROM usuario where email = '".$_GET['email']."'";
         $query = $this->db->query($consulta);
         $row = $query->row_array();
-        
         if($query->num_rows() == 0){
-            session_destroy();
             redirect('../index.php?error_message=Usuario no registrado&error=1', 'Location');
-            
         }else{
             $_SESSION['usuario'] = $row['id_usuario'];
             redirect('../index.php/muro', 'Location');
         }
-        
-        
-        
-        
     }
     
 }

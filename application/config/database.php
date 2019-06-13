@@ -28,12 +28,13 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
+
 $db['testing'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'TECFACE',
+	'hostname' => 'sl1.cyberfuel.com',
+	'username' => 'qa_testing',
+	'password' => 'qa_testing123',
+	'database' => 'qa_testing',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

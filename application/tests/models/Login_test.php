@@ -3,6 +3,7 @@ class Login_test extends TestCase
 {
     public function setUp(){
 		//$this->obj = $this->newModel('Login_m');
+        session_start();
 	}
     
     public function test_index(){
@@ -36,7 +37,27 @@ class Login_test extends TestCase
 			['usuario' => 'ceciliano','password' => 'admin']
 		);
         $this->assertRedirect('../index.php/muro', 302);
-    } 
+    }
+    
+//----------------------------------------------------------------------------------------------------
+   public function test_login_facebook(){
+        $output = $this->request(
+			'POST',
+			'login/ingresar_FB?email=cecilianogranados96@hotmail.com'
+		);
+       
+       $this->assertRedirect('../index.php?error_message=Usuario no registrado&error=1', 302);
+    }
+    
+    public function test_login_facebook_no_correcto(){
+        $output = $this->request(
+			'POST',
+			'login/ingresar_FB?email=ceciliano@hotmail.com'
+		);
+       $this->assertRedirect('../index.php?error_message=Usuario no registrado&error=1', 302);
+    }
+    
+    
     
     
 }
